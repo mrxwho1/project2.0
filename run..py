@@ -124,12 +124,15 @@ flappy = Bird(100, int(screen_height / 2))
 
 bird_group.add(flappy)
 
+# Основной игровой цикл
 run = True
 while run:
-
     clock.tick(fps)
 
     screen.blit(bg, (0, 0))
+    bird_group.draw(screen)
+    bird_group.update()
+    pipe_group.draw(screen)
     screen.blit(ground_img, (ground_scroll, 768))
 
     for event in pygame.event.get():
